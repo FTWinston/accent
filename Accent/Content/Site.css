@@ -1,24 +1,56 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.button {
+    display:inline-block !important;
+    position:relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: solid grey 1px;
+    padding: 0.35em 0.5em;
+    font-size: 1em;
+    text-decoration: none;
+    color: black;
+    font-family: inherit;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.button:hover {
+    color: dodgerblue;
+    text-decoration: underline;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.large {
+    font-size: 1.5em;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
+.form {
+    width: 30em;
+    margin: auto;
+}
+
+.form .field {
+    margin-bottom: 1.5em;
+    width: 100%;
+    text-align: center;
+}
+
+.form .field label {
+    text-align: justify;
+}
+
+.form .field > *:not(button) {
+    display: block;
+    width: 100%;
+}
+
+.form .output {
+    border: dashed black 1px;
+    padding: 1em 0.5em;
+}
+
 textarea {
-    max-width: 280px;
+    height: 6em;
+}
+
+#error {
+    color: red;
+    font-size: 1.1em;
+    margin-bottom: 1em;
 }

@@ -2,30 +2,40 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div id="speech" class="form">
+    <div class="field">
+        <label class="intro" for="textToSpeak">Enter some text:</label>
+        <textarea id="textToSpeak"></textarea>
+    </div>
+
+    <div class="field">
+        <label for="speechAccent">Select an accent to hear the text in:</label>
+        <select id="speechAccent">
+            <option value="1">Default</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label for="btnSpeak">Click to hear your text in the chosen accent:</label>
+        <button id="btnSpeak" class="button large">Speak</button>
+    </div>
+
+    <div id="loading" style="display:none">loading...</div>
+
+    <div class="field output" id="speechOutput" style="display:none"></div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+<div id="error" class="form" style="display:none;">
+    <p>Your browser doesn't support the &lt;audio&gt; tag, so you can't use this site.</p>
+    <p>See a list of supported browsers <a href="http://caniuse.com/audio">here</a>.</p>
 </div>
+
+<div class="blurb">
+    How does this work? Beats me, to be honest.
+</div>
+
+@section scripts {
+<script>
+var pronunciationUrl = '@Url.Action("Pronounce", "Speech")';
+</script>
+}
